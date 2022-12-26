@@ -1,0 +1,50 @@
+:root {
+    --main-color: #ffe44d;
+}
+
+body {
+	margin: 0;
+	font-family: "Nunito", "Arial", "Helvetica", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.wrapper {
+	min-height: 100vh;
+    /* background-color: beige; */
+}
+
+.cards-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 12px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 916px) {
+    .cards-container {
+        /* grid-template-columns: repeat(3, 1fr); */
+        gap: 10px;
+    }
+}
+@media (max-width: 852px) {
+    .cards-container {
+        margin: 0 auto;
+        grid-template-columns: repeat(3, 200px);
+        gap: 10px;
+    }
+}
+@media (max-width: 636px) {
+    .cards-container {
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 200px);
+        gap: 10px;
+    }
+}

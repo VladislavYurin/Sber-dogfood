@@ -1,0 +1,33 @@
+
+.productsInCarusel {
+    display: flex;
+    overflow: hidden;
+    gap: 30px;
+    padding: 0 12px;
+    width: 100%;
+    margin: 0 auto;
+}
+.btnGroups {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.btnsGroup {
+    background-color: rgb(224, 219, 219);
+}
+
+@media (max-width: 934px) {
+    .productsInCarusel {
+        width: 685px;
+    }
+}
+
+@media (max-width: 694px) {
+    .productsInCarusel {
+        gap: 15px;
+        width: 438px;
+    }
+}
+

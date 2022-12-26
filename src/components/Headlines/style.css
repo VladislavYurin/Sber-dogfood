@@ -1,0 +1,10 @@
+.btnGroups {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.btnsGroup {
+    background-color: rgb(224, 219, 219);
+}

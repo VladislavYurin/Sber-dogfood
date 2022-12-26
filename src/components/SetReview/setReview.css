@@ -1,0 +1,50 @@
+.popupBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0008;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    }
+
+.popupBox.active {
+    display: flex; 
+    }
+    
+.popup {
+    width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    /* font-size: 20px; */
+    }
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    }
+
+.commentBtns {
+    padding-top: 30px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.textareaLabel {
+    font-weight: 800;
+}
+
+.productPicture {
+    max-height: 200px;
+    width: 100px;
+}
+
+.cansel {
+    background-color: rgb(182, 179, 179);
+}

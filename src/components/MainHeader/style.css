@@ -1,0 +1,43 @@
+/* h1 {
+    margin: 0;
+}
+
+.mainWrapper {
+    background-color: var(--main-color);
+    padding-bottom: 170px;
+}
+
+.mainSearch {
+    width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.headerContent {
+    padding: 0 calc(50% - 450px);
+}
+
+.headerInfo {
+    width: 370px;
+}
+
+.headerTitle {
+    font-weight: bold;
+}
+
+.headerText {
+    font-size: 18px;
+    width: 330px;
+    margin-top: 15px;
+}
+
+.mainHeaderBtn {
+    background-color: #fff;
+    padding: 10px 25px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btnArrow {
+    margin-left: 10px;
+} */

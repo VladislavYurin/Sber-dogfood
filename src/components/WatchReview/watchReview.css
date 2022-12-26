@@ -1,0 +1,29 @@
+th {
+    width: 300px;
+}
+
+tr {
+    vertical-align: baseline;
+}
+
+.commentator {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.commentary {
+    font-weight: 800;
+}
+
+.ratingStyle {
+    color: var(--main-color);
+    font-size: 25px;
+}

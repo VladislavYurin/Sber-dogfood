@@ -1,0 +1,42 @@
+.card {
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+    padding: 8px;
+    display: grid;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.caruselCard {
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+.cardsLink {
+    transition: 0.5s ease-out;
+    
+}
+
+.card__img {
+    height: 120px;
+    background: no-repeat center / contain;
+}
+
+.card__price {
+    font-weight: 800;
+}
+
+.card__text {
+    font-size: 14px;
+}
+
+.btn {
+    width: max-content;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 12px;
+    font-weight: 700;
+    background-color: var(--main-color);
+    height: max-content;
+    align-self: flex-end;
+}

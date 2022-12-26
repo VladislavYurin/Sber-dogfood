@@ -1,0 +1,14 @@
+.product__row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product__btn {
+    cursor: pointer;
+}
+
+.product__inp {
+    border: 1px solid silver;
+}

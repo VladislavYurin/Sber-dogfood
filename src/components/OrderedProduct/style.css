@@ -1,0 +1,13 @@
+.orederdProductInfo {
+    display: flex;
+    gap: 10px;
+}
+
+.card__img {
+    height: 70px;
+    width: 70px;
+}
+
+.card__text {
+    padding: 10px;
+}
