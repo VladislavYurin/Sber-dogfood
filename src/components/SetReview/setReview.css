@@ -8,26 +8,25 @@
     display: none;
     justify-content: center;
     align-items: center;
-    }
+}
 
 .popupBox.active {
-    display: flex; 
-    }
-    
+    display: flex;
+}
+
 .popup {
     width: 600px;
     background-color: #fff;
     padding: 20px;
     border-radius: 15px;
     position: relative;
-    /* font-size: 20px; */
-    }
+}
 
-form{
+form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    }
+}
 
 .commentBtns {
     padding-top: 30px;
@@ -36,7 +35,7 @@ form{
     justify-content: flex-end;
 }
 
-.textareaLabel {
+.labelInfo {
     font-weight: 800;
 }
 
@@ -47,4 +46,35 @@ form{
 
 .cansel {
     background-color: rgb(182, 179, 179);
+}
+
+.formRange {
+    height: 1px;
+    padding: 2px;
+    color: black;
+    background-color: rgb(209, 209, 218);
+}
+
+.ratingNumber {
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border-radius: 50%;
+    border-color: var(--main-color);
+
+}
+
+.range {
+    width: 100%;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }

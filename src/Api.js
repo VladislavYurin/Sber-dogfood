@@ -11,7 +11,7 @@ class Api {
                 "Authorization": `Bearer ${this.token}`
             }
         })
-       
+
     }
     getProduct(id) {
         return fetch(`${this.path}/products/${id}`, {
@@ -19,7 +19,7 @@ class Api {
                 "Authorization": `Bearer ${this.token}`
             }
         })
-       
+
     }
     addProduct(body) {
 
@@ -62,10 +62,10 @@ class Api {
     }
     showProfile() {
         return fetch(`${this.path}/v2/group-7/users/me`, {
-        headers: {
-            "Authorization": `Bearer ${this.token}`
-        }
-    })
+            headers: {
+                "Authorization": `Bearer ${this.token}`
+            }
+        })
     }
 
     setLike(id, flag) {
@@ -78,7 +78,7 @@ class Api {
     }
 
     getReviews(id) {
-        return fetch(`${this.path}/products/review/${id}` , {
+        return fetch(`${this.path}/products/review/${id}`, {
             headers: {
                 "Authorization": `Bearer ${this.token}`,
                 "Content-Type": "application/json",
@@ -96,6 +96,15 @@ class Api {
                 "Accept": "application/json"
             },
             body: JSON.stringify(body)
+        })
+    }
+
+    delReview(productId, reviewId) {
+        return fetch(`${this.path}/products/review/${productId}/${reviewId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${this.token}`
+            }
         })
     }
 
