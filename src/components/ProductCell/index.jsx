@@ -7,6 +7,12 @@ import {Context} from "../../App"
 
 export default ({setProduct, product, id, value, type, tagMain, tagInp}) => {
 
+    const textareaStyle = {
+        resize: "none",
+        width: "1400px",
+        height: "100px"
+    }
+
     const {api, user} = useContext(Context);
 
     const [flag, setFlag] = useState(false)
@@ -40,7 +46,7 @@ export default ({setProduct, product, id, value, type, tagMain, tagInp}) => {
             flag ?  
             <>
                 {tagInp === "input" && <input className="product__inp" type = {type === "price" ? "number" : "text"} value={content} onChange={(e) => setContent(e.target.value)}/>}
-                {tagInp === "textarea" && <textarea className="product__inp" value={content} onChange={(e) => setContent(e.target.value)}></textarea>}
+                {tagInp === "textarea" && <textarea style={textareaStyle} className="product__inp" value={content} onChange={(e) => setContent(e.target.value)}></textarea>}
                 {tagInp === "select" && 
                 <select className="product__inp" value={content} onChange={(e) => setContent(e.target.value)}>
                     <option>0</option>
@@ -57,7 +63,7 @@ export default ({setProduct, product, id, value, type, tagMain, tagInp}) => {
             <>
                 {tagMain === "img" && <img src={content} width="300"/>}
 
-                {tagMain === "h1" && <h1>{content}</h1>}
+                {tagMain === "h1" && <h1 style={{fontWeight: "700"}}>{content}</h1>}
 
                 {tagMain !== "img" && tagMain !== "h1" && <div>{content}</div>}
 

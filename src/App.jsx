@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Routes, Route} from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import {Container, Row, Col} from "react-bootstrap";
@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Favorites from "./components/Favorites"
 import Cart from "./pages/Cart";
-
+import FooterMini from "./components/FooterMini";
 
 import Api from "./Api.js"
 
@@ -42,8 +42,6 @@ const App = () => {
         return data || [];
     });
 
-
-
     const [products, setProducts] = useState([]);
     const [searchText, search] = useState("");
 
@@ -51,43 +49,26 @@ const App = () => {
         // console.log("user is changed");
         setApi(new Api(token));
     }, [token])
-    
-    
-
-    // useEffect(() => {
-
-    //     fetch("https://api.react-learning.ru/products",
-    //         {
-    //             headers: {
-    //                 "Authorization": `Bearer ${token}`
-    //             }
-    //         })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setGoods(data.products);
-    //             setData(data.products);
-    //         });
-    // }, []);
 
     useEffect(() => {
         Local.setItem("cart", cart, true)
+
     }, [cart])
-    
-    
+
     useEffect(() => {
         if (token) {
-        api.getProducts()
-            .then(res => res.json())
-            .then(data => {
-                setGoods(data.products);
-                setData(data.products);
-                Local.setItem("goods", data.products, true)
-            })
-        api.showProfile()
-            .then(res => res.json())
-            .then(data => {
-                // console.log("User", data);
-            })
+            api.getProducts()
+                .then(res => res.json())
+                .then(data => {
+                    setGoods(data.products);
+                    setData(data.products);
+                    Local.setItem("goods", data.products, true)
+                })
+            api.showProfile()
+                .then(res => res.json())
+                .then(data => {
+                    // console.log("User", data);
+                })
         } else {
             setGoods([]);
             setData([]);
@@ -113,38 +94,39 @@ const App = () => {
         user: user
     }}>
         <div className="wrapper" style={footerToBottom}>
-            <div className="top" style={{flexGrow: 1}}>
-                <Header 
-                openPopup = {changePopupActive} 
-                user={!!token} 
-                setToken={setToken} 
-                api={api}
-                setUser={setUser}
-                likes={fav.length}
-                cart={cart.length}/>
-                
-                
+            <div className="top" style={{ flexGrow: 1 }}>
+                <Header
+                    openPopup={changePopupActive}
+                    user={!!token}
+                    setToken={setToken}
+                    api={api}
+                    setUser={setUser}
+                    likes={fav.length}
+                    cart={cart} />
+
+
 
                 <Routes>
-                    <Route path="/" element={<Main/>}/>
-                    <Route path="/add" element={<AddProduct/>}/>
-                    <Route path="/catalog" element={ <Catalog setFav={setFav} setCart={setCart}/> }/>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/add" element={<AddProduct />} />
+                    <Route path="/catalog" element={<Catalog setFav={setFav} setCart={setCart} />} />
                     {/* <Route path="/product/:id" element= {<Product/>}/> */}
-                    <Route path="/product/:id" element= {<Single/>}/>
-                    <Route path="/profile" element= {<Profile user={user}/>}/>
-                    <Route path="/favorites" element={<Favorites fav={fav}/>}/>
-                    <Route path="/cart" element={<Cart cart={cart}  setCart={setCart}/>}/>
-                
+                    <Route path="/product/:id" element={<Single setCart={setCart} />} />
+                    <Route path="/profile" element={<Profile user={user} />} />
+                    <Route path="/favorites" element={<Favorites fav={fav} />} />
+                    <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+
                 </Routes>
             </div>
-            <Footer />
+            {/* <Footer /> */}
+            {screen.width < 768 ? <FooterMini user={user} favLength={fav.length} cart={cart} /> : <Footer />}
         </div>
-        { !token && <Modal 
-        isActive={popupActive} 
-        changeActive={changePopupActive} 
-        setToken={setToken}  
-        setUser={setUser}/>}
+        {!token && <Modal
+            isActive={popupActive}
+            changeActive={changePopupActive}
+            setToken={setToken}
+            setUser={setUser} />}
     </Context.Provider>
 }
 
-export {App, Context};
+export { App, Context };

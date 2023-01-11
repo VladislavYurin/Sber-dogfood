@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import { Table } from "react-bootstrap";
 import { Context } from "../../App";
 import "./watchReview.css"
@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 export default ({ el, product, setReviews, setProduct, params }) => {
 
-    const { api, user } = useContext(Context);
+    const {api, user} = useContext(Context);
 
     const [rating, setRating] = useState(() => {
         let rate = ""
@@ -25,23 +25,24 @@ export default ({ el, product, setReviews, setProduct, params }) => {
 
     const delHandler = (e) => {
         e.preventDefault();
-        {
-            confirm("Вы уверены, что хотите удалить свой комментарий?") && api.delReview(product._id, el._id)
-                .then(res => res.json())
-                .then(data => {
-                    setProduct(data)
-                })
-
+        // console.log("deleting")
+       {confirm("Вы уверены, что хотите удалить свой комментарий?") && api.delReview(product._id, el._id)
+            .then(res => res.json())
+            .then(data => {
+                setProduct(data)  
+            })
+       
         }
 
     }
 
     useEffect(() => {
         api.getReviews(params.id)
-            .then(res => res.json())
-            .then(data => {
-                setReviews(data)
-            })
+        .then(res => res.json())
+        .then(data =>  {
+            console.log(data, "xxx")
+            setReviews(data)
+        })
     }, [product])
 
     return <>
@@ -60,8 +61,8 @@ export default ({ el, product, setReviews, setProduct, params }) => {
                     </th>
                     <td className="ratingStyle">{rating}</td>
                     {user.name === el.author.name && <td className="delReview">
-                        <Link to={""} onClick={delHandler}>X</Link>
-                    </td>}
+                        <Link to={""} onClick={delHandler}>Удалить</Link>
+                        </td>}
                 </tr>
                 <tr>
                     <th></th>

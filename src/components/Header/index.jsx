@@ -1,19 +1,20 @@
-import React, {useState, useContext} from "react";
-import {Context} from "../../App"
-import {Link, useNavigate} from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Context } from "../../App"
+import { Link, useNavigate } from "react-router-dom";
+import { Container, Navbar, Nav } from "react-bootstrap";
 
 import Logo from "../Logo";
-import {BoxArrowInRight, BoxArrowLeft, PlusCircle} from "react-bootstrap-icons"
+import { BoxArrowInRight, BoxArrowLeft, PlusCircle } from "react-bootstrap-icons"
 import "./style.css";
-import {ReactComponent as FavIcon} from "./img/ic-favorites.svg"
-import {ReactComponent as CartIcon} from "./img/ic-cart.svg"
-import {ReactComponent as ProfileIcon} from "./img/ic-profile.svg"
+import { ReactComponent as FavIcon } from "./img/ic-favorites.svg"
+import { ReactComponent as CartIcon } from "./img/ic-cart.svg"
+import { ReactComponent as ProfileIcon } from "./img/ic-profile.svg"
 
-export default ({openPopup, user, setToken, setUser, likes, cart}) => {
+export default ({ openPopup, user, setToken, setUser, likes, cart }) => {
 
     const nav = useNavigate();
 
-    const {searchText, search, setProducts, goods} = useContext(Context);
+    const { searchText, search, setProducts, goods } = useContext(Context);
 
     const handler = e => {
         search(e.target.value);
@@ -31,9 +32,9 @@ export default ({openPopup, user, setToken, setUser, likes, cart}) => {
         nav("/");
     }
 
-    return <> 
-    {/* <> </> ---> пустой родительский тег <React.Fragment></React.Fragment> */}
-        <header>
+    return <>
+        {/* <> </> ---> пустой родительский тег <React.Fragment></React.Fragment> */}
+        {/* <header>
             <Logo/>
             <input type="search" value={searchText} onChange = {handler}/>
             <nav>
@@ -45,7 +46,39 @@ export default ({openPopup, user, setToken, setUser, likes, cart}) => {
                 {user && <a href="" onClick={logout}><BoxArrowLeft/></a>}
                 {!user && <a href="" onClick={e => {e.preventDefault(); openPopup(true)}}><BoxArrowInRight style={{fontSize: "2rem"}}/></a>}
             </nav>
-        </header>
-       
-    </> 
+        </header> */}
+
+        <Navbar style={{ backgroundColor: "var(--main-color)" }} expand="lg">
+            <Container className="header">
+                <Navbar.Brand className="brand" href=""><Logo /></Navbar.Brand>
+                <input type="search" value={searchText} onChange={handler} />
+                <div>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="">
+                                {user && <Link to={'/favorites'}><a className="navLinks" href=""><FavIcon /><span>{likes}</span></a></Link>}
+                            </Nav.Link>
+                            <Nav.Link href="">
+                                {user && <Link to="/add"><PlusCircle /></Link>}
+                            </Nav.Link>
+                            <Nav.Link href="">
+                                {user && <Link to={'/cart'}><a className="navLinks" href=""><CartIcon /><span>{cart.reduce((acc, el) => acc + el.amount, 0)}</span></a></Link>}
+                            </Nav.Link>
+                            <Nav.Link href="">
+                                {user && <Link to="/profile"><ProfileIcon /></Link>}
+                            </Nav.Link>
+                            <Nav.Link href="">
+                                {user && <a className="navLinks" href="" onClick={logout}><BoxArrowLeft /></a>}
+                            </Nav.Link>
+                            <Nav.Link href="">
+                                {!user && <a className="navLinks" href="" onClick={e => { e.preventDefault(); openPopup(true) }}><BoxArrowInRight style={{ fontSize: "2rem" }} /></a>}
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </div>
+            </Container>
+        </Navbar>
+
+    </>
 }

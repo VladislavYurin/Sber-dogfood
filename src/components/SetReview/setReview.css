@@ -8,25 +8,26 @@
     display: none;
     justify-content: center;
     align-items: center;
-}
+    }
 
 .popupBox.active {
-    display: flex;
-}
-
+    display: flex; 
+    }
+    
 .popup {
     width: 600px;
     background-color: #fff;
     padding: 20px;
     border-radius: 15px;
     position: relative;
-}
+    /* font-size: 20px; */
+    }
 
-form {
+form{
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
+    }
 
 .commentBtns {
     padding-top: 30px;
@@ -65,7 +66,7 @@ form {
     font-size: 25px;
     border-radius: 50%;
     border-color: var(--main-color);
-
+    
 }
 
 .range {

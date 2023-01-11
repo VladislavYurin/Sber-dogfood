@@ -1,29 +1,28 @@
-footer {
+.wrapper_footer{
+    height: 130px;
+    width: 100vw;
     background-color: var(--main-color);
-    padding: 16px calc(50% - 500px);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 60px;
 }
-@media (max-width: 1060px) {
-    footer {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
+.menu, .more_menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
 }
-.contacts {
-    grid-row: 1 / span 4;
-    grid-column-start: 4;
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.contactsLinks {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-footer>.logo {
-    grid-row: 1 / span 2;
-    
-}
-.copy {
-    grid-row: 3 / span 2
+.icon_contact i{
+    color:#000;
+    font-size: 20px;
+    padding-left: 10px;
 }
