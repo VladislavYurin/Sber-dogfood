@@ -28,7 +28,6 @@ export default () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // Написать Товар успешно добавлен в виде доп попапа
                 if (data) {
                     setInp1("")
                     setInp2("")

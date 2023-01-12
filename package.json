@@ -11,13 +11,15 @@
 		"start": "webpack serve"
 	},
 	"dependencies": {
+		"add": "^2.0.6",
 		"bootstrap": "^5.2.2",
-		"core-js": "^3.27.1",
+		"core-js": "3",
 		"react": "^17.0.2",
 		"react-bootstrap": "^2.5.0",
 		"react-bootstrap-icons": "^1.9.1",
 		"react-dom": "^17.0.2",
-		"react-router-dom": "^6.3.0"
+		"react-router-dom": "^6.3.0",
+		"yarn": "^1.22.19"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.17.5",

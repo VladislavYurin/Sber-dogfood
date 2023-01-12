@@ -2,12 +2,11 @@ import React from "react";
 import Logo from "../Logo";
 import "./style.css";
 
-export default()=>{
-    return(
-        
+export default () => {
+    return (
         <div className="wrapper_footer">
             <div className="logo">
-                <Logo/>
+                <Logo />
             </div>
             <div className="menu">
                 <a href="">Каталог</a>
@@ -35,6 +34,6 @@ export default()=>{
                 </div>
             </div>
         </div>
-        
+
     )
 }

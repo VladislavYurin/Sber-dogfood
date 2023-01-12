@@ -12,12 +12,10 @@ export default () => {
     const [product, setProduct] = useState({})
     const [cnt, setCnt] = useState(0);
     let params = useParams();
-    console.log(params)
     useEffect(() => {
         api.getProduct(params.id)
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
                 setProduct(data);
             })
     }, [])

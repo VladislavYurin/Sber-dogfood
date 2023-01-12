@@ -19,7 +19,6 @@ export default ({ openPopup, user, setToken, setUser, likes, cart }) => {
     const handler = e => {
         search(e.target.value);
         const result = goods.filter((el => el.name.toLowerCase().search(e.target.value.toLowerCase()) !== -1));
-        // console.log(result);
         setProducts(result);
     }
 
@@ -33,21 +32,6 @@ export default ({ openPopup, user, setToken, setUser, likes, cart }) => {
     }
 
     return <>
-        {/* <> </> ---> пустой родительский тег <React.Fragment></React.Fragment> */}
-        {/* <header>
-            <Logo/>
-            <input type="search" value={searchText} onChange = {handler}/>
-            <nav>
-               
-                {user && <Link to={'/favorites'}><a href=""><FavIcon/><span>{likes}</span></a></Link>}
-                {user && <Link to="/add"><PlusCircle/></Link>}
-                {user && <Link to={'/cart'}><a href=""><CartIcon/><span>{cart}</span></a></Link>}
-                {user && <Link to="/profile"><ProfileIcon/></Link>}
-                {user && <a href="" onClick={logout}><BoxArrowLeft/></a>}
-                {!user && <a href="" onClick={e => {e.preventDefault(); openPopup(true)}}><BoxArrowInRight style={{fontSize: "2rem"}}/></a>}
-            </nav>
-        </header> */}
-
         <Navbar style={{ backgroundColor: "var(--main-color)" }} expand="lg">
             <Container className="header">
                 <Navbar.Brand className="brand" href=""><Logo /></Navbar.Brand>
